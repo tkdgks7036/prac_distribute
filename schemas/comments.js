@@ -1,22 +1,22 @@
 const mongoose = require('mongoose');
 
 const commentsSchema = new mongoose.Schema({
-    commentId: {
+    postId: {
         type: String,
         required: true
     },
 
-    user: {
+    userId: {
         type: String,
         required: true
     },
 
-    password: {
+    nickname: {
         type: String,
         required: true
     },
 
-    content: {
+    comment: {
         type: String,
         required: true
     },
@@ -25,7 +25,12 @@ const commentsSchema = new mongoose.Schema({
         type: Date,
         required: true,
         default: Date.now
+    },
+
+    updatedAt: {
+        type: Date,
+        default: Date.now
     }
 });
 
-module.exports = mongoose.model("Comments", commentsSchema);
+module.exports = mongoose.model("Comment", commentsSchema);

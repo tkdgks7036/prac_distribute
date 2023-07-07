@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const postsSchema = new mongoose.Schema({
-    user: {
+    userId: {
         type: String,
         required: true
     },
 
-    password: {
+    nickname: {
         type: String,
         required: true
     },
@@ -23,8 +23,13 @@ const postsSchema = new mongoose.Schema({
 
     createdAt: {
         type: Date,
-        required: true
+        default: Date.now
+    },
+
+    updatedAt: {
+        type: Date,
+        default: Date.now
     }
 });
 
-module.exports = mongoose.model("Posts", postsSchema);
+module.exports = mongoose.model("Post", postsSchema);
